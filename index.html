@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Introducing Ionic 2</title>
+
+    <meta name="description" content="Ionic 2 is the upcoming version of Ionic Framework">
+    <meta name="author" content="https://twitter.com/imsinghk7">
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="jquery.min.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    
+       <script>
+            function getPlatform(iframeSrc) {
+              // return: 'ios' or android
+              if (iframeSrc.indexOf('android') > -1) {
+                return 'android';
+              }
+              return 'ios';
+            };
+          
+             function togglePlatform () {
+              var demoFrame = $('.demo > iframe')
+              var currentSrc = demoFrame.attr('src');
+              var newSrc = currentSrc.split('?')[0] + '?ionicplatform=';
+              var currentPlatform = getPlatform(currentSrc);
+              if (currentPlatform === 'ios') {
+                demoFrame.attr('src', newSrc + 'android');
+                return "android";
+              } else {
+                demoFrame.attr('src', newSrc + 'ios');
+                return "ios";
+              }
+            }
+        </script>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+
+
+        <section>
+          <img src="img/ionic-logo.png" class="logo" width="296" height="331">
+          <h1 style="margin-top: 30px;">Introducing Ionic 2</h1>
+        </section>
+
+
+        <section data-background="img/ludhiana.jpg">
+          <img src="img/me.jpg" style="width:200px; height: 200px;
+                                       max-width:none; max-height: none;
+                                       position: absolute; left: 40px; top: -10px;
+                                       border-radius: 50%; border: 4px solid black;
+                                       box-shadow: 5px 0 10px black;">
+          <h2 class="left dark-shadow" style="margin-left:340px;">Indermohan Singh</h2>
+          <h3 class="left dark-shadow" style="margin-left:340px;">Coordinator Ionic India</h3>
+          <ul class="me dark-shadow">
+            <li style="background:url(img/marker.png) no-repeat 0 8px;">Ludhiana, PB, India</li>
+            <li style="background:url(img/twitter.png) no-repeat 0 16px;">
+              <a href="https://twitter.com/imsinghk7" target="_blank" style="text-decoration:none">@imsinghk7</a>
+            </li>
+            <li style="background:url(img/github.png) no-repeat 0 17px;">
+              <a href="https://github.com/imsingh" target="_blank" style="text-decoration:none">
+                imsingh</a>
+              </li>
+          </ul>
+        </section>
+
+        <section>
+            <p style="font-size:80px">What are Hybrid Apps?</p>
+        </section>
+        <section>
+          <h3 style="font-size: 80px">Hybrid Apps!</h3>
+          <p style="font-size: 32px"><strong>HTML5</strong> that acts like native</p>
+          <p style="font-size: 32px">Web wrapped in <strong>native layer</strong></p>
+          <p style="font-size: 32px">Direct access to <strong>native APIs</strong></p>
+          <p style="font-size: 32px">Familiar <strong>web dev</strong> environment</p>
+          <p style="font-size: 32px">A <strong>single code base</strong> (web platform!)</p>
+        </section>
+        
+        <section>
+          <img src="img/cordova.png" class="logo" width="512" height="152">
+          <img src="img/phonegap.png" style="margin-top:-75px" class="logo" width="475" height="270">
+          <h3> Cordova / PhoneGap</h3>
+          <p>Wrap HTML5 Apps into Native</p>
+          <p>Provides API to access Native Functionalities</p>
+        </section>
+        
+        <section>
+         <h1>Few Years Ago</h1>
+        </section>
+
+
+        <section data-background="img/websdk.png">
+        </section>
+
+
+        <section data-background="white">
+          <img src="img/ionic-logo.svg" style="width:750px;">
+        </section>
+
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v1/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Components</h3>
+            <ul style="margin-left: 70px">
+              <li>Side Menus</li>
+              <li>Actionsheet</li>
+              <li>Modal</li>
+              <li>Pull To Refresh</li>
+              <li>Slidebox</li>
+              <li>Infinite Scroll</li>
+              <li>Swipeable List Options</li>
+              <li>Popup</li>
+              <li>Popover</li>
+              <li>Loading Overlay</li>
+              <li>Inputs</li>
+              <li>Buttons</li>
+              <li>etc.</li>
+            </ul>
+          </div>
+        </section>
+        
+        <section data-background="white">
+          <img src="img/focus-on-app.png">
+        </section>
+
+        <section data-background="img/phones-stacked.png">
+          <h2 style="color:black; margin-bottom: 50px">Structure of Ionic Apps</h2>
+          <ul class="stack">
+            <li style="background: #20ab93">Your App</li>
+            <li style="background: #4c8df5">Ionic</li>
+            <li style="background: #d94442">Angular</li>
+            <li style="background: #3b4854">WebView (Cordova)</li>
+            <li style="background: #d4deee; color: #3b4854;">Native App</li>
+          </ul>
+        </section>  
+        
+        <section>
+            <h2> Ionic V1</h2>
+            <p>One of best tool for Hybrd apps</p>
+            <p>Easy to Customize with SASS</p>
+            <p>Easy to build apps with Angular 1.x</p>
+        </section>
+
+        <section>
+            <h1>Why Ionic 2?</h1>
+            <p class="fragment">We can always improve things!</p>
+            <p class="fragment">Filling the shortcomings of v1</p>
+            <p class="fragment">Making Development more simpler</p>
+        </section>
+        
+         <section>
+            <h1>Features of Ionic 2</h1>
+            <p class="fragment">Leveraging Latest JavaScript Features.</p>
+            <p class="fragment">Better performance</p>
+            <p class="fragment">Easier to understand</p>
+            <p class="fragment">Simpler concepts and code</p>
+            <p class="fragment">Better navigation control</p>
+        </section>
+        
+         <section>
+            <h1>Latest JavaScript</h1>
+             <section>
+              <p>ES5 has served us well for so many years</p>
+              <p>JS world is changing too fast!</p>
+              <p>All for cleaner and simpler code</p>
+             </section>
+             
+              <section>
+                <p>Ionic 2 uses Angular 2 and TypeScript</p>
+                <p>Use Latest Standards and Features</p>
+                <p>Classes, Modules, Decorators, Arrow Functions</p>
+             </section>
+             
+              <section>
+                <p>Ionic 2 is setup for ES6 and TypeScript.</p>
+                <p>All the build and transpiling tools are setup for you</p>
+                <p>Write your code, it will build for you!</p>
+                <p>Code completion Support and Intellisense</p>
+              </section>
+              
+              <section>
+                  <h3>How Class looks like?</h3>
+                   <pre data-trim><code class="javascript">
+                      class MyClass {
+                        constructor() {
+                         // Do cool initalizing Stuff here
+                        }
+                        
+                        memberFunction() {
+                          // I am Member Function
+                        }
+                      }
+                    </code></pre>
+              </section>
+              
+        </section>
+        
+        <section>
+            <h1>Simplicity</h1>
+              <section>
+                <p>Ionic V1 made development dead simple</p>
+                <p>But there were too many concepts</p>
+                <p>$scope, ng-controller, factory, service, directives</p>
+              </section>
+             
+              <section>
+                <p>Ionic 2 uses ES6 Modules and Classes</p>
+                <p>Simple Code Structure</p>
+                <p>Easy to Understand.</p>
+                <p>Easy to Include External Code</p>
+             </section>
+             
+              <section>
+                <p>Build Process comes to your resuce!</p>
+                <p>Starts a LiveReload Server</p>
+                <p>Hadles Transpiling TS and JS</p>
+                <p>Handles SASS</p>
+              </section>
+              
+              <section>
+                <p>Abstracted Complexities of Angular 2</p>
+                <p>Bootstraping is automatic</p>
+                <p>Directives and Services are automatically Available</p>
+              </section>
+              
+              <section>
+                  <h3>Want to use an External Library?</h3>
+                  <pre data-trim><code class="javascript">
+                      import { Stuff } from 'external';
+                      
+                      class MyClass {
+                        constructor() {
+                          let myStuff = Stuff;
+                          myStuff.doMagic();
+                        }
+                      }
+                    </code></pre>
+              </section>
+        </section>
+        
+        <section>
+            <h3>UI Component Overview</h3>
+        </section>        
+             
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/list/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>List</h3>
+             <pre data-trim><code class="xml">
+<ion-list>
+    <ion-item>First Item</ion-item>
+    <ion-item>Second Item</ion-item>
+    <ion-item *ng-for="#item of items"></ion-item>
+</ion-list>
+            </code></pre>
+          </div>
+        </section>
+        
+        <section>
+            <div class="col preview demo-frame">
+               <iframe src="demos/v2/demos/navigation/index.html"></iframe>
+            </div>
+            <div class="col code">
+              <h3>Navigation</h3>
+              <ul style="margin-left: 70px">
+                <li>Uses Push/Pop Navigation</li>
+                <li>More Live Native Platform</li>
+                <li>Create Navigation Stack anywhere</li>
+                <li>Not Tied to URL</li> 
+                <li>Developer has more control</li> 
+              </ul>
+            </div>
+        </section>
+
+        
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/menu/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Menu</h3>
+            <pre data-trim><code class="xml">
+<ion-menu id="menu" [content]="#content">
+  
+  <ion-toolbar>
+     <ion-title>Menu</ion-title>
+  </ion-toolbar>
+  
+  <ion-content>
+      <ion-list>
+          <ion-item>Menu Item</ion-item>
+      </ion-list>
+  </ion-content>
+  
+</ion-menu>
+            </code></pre>
+            
+          </div>
+        </section>
+        
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/slides/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Slides</h3>
+          <pre data-trim><code class="xml">
+            
+<ion-slides [options]="extraOptions" id="slider">
+  <ion-slide *ng-for="#image of images">
+    <img data-src="{{image.url}}" slide-lazy>
+  </ion-slide>
+</ion-slides>
+        </code></pre>
+        </div>
+        </section>
+        
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/action-sheet/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Actionsheet</h3>
+            <ul>
+              <li>Import ActionSheet Service</li>
+            </ul>
+             <pre data-trim><code class="javascript">
+
+this.actionSheet.open({
+    buttons: [
+      { text: 'Share This' },
+      { text: 'Move' }
+    ],
+    destructiveText: 'Delete',
+    titleText: 'Modify your album',
+    cancelText: 'Cancel',
+    buttonClicked: function(index) {
+      console.log('Button clicked', index);
+      if(index == 1) { return false; }
+      return true;
+    }
+
+})
+        </code></pre>
+          </div>
+        </section>
+        
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/modal/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Modal</h3>
+             <ul>
+               <li>Import Modal Service</li>
+               <li>Use it anywhere in your App's Class</li>
+               </ul>
+               <pre data-trim><code class="javascript">
+this.modal.open(AnyView, {
+  enterAnimation: 'my-fade-in',
+  leaveAnimation: 'my-fade-out',
+  handle: 'my-awesome-modal'
+});
+             </code></pre>
+          </div>
+        </section>
+        
+         <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/buttons/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Buttons</h3>
+            <ul>
+              <li>Uses Element properties</li>  
+            </ul>
+            <pre data-trim><code class="xml">
+<button>Simple</button>
+<button primary>Primary</button>
+<button full>Full</button>
+<button round>Round</button>
+<button fab>Fab</button>
+              </code></pre>
+          </div>
+          
+          
+        </section>
+        
+         <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/icons/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Icons</h3>
+            <pre data-trim><code class="xml">
+ <icon wifi></icon>
+ <icon heart></icon>
+ <icon home></icon>
+ <icon color-wand></icon>
+ <icon star></icon>
+ <icon pizza></icon>
+ <icon beer></icon>
+ <icon wine></icon>
+              </code></pre>
+          </div>
+        </section>
+        
+        <section>
+          <div class="col preview demo-frame">
+            <iframe src="demos/v2/demos/cards/index.html"></iframe>
+          </div>
+          <div class="col code">
+            <h3>Card</h3>
+            <pre data-trim><code class="xml">
+ <ion-card>
+
+    <ion-card-header>
+      Card Header
+    </ion-card-header>
+
+    <ion-card-content>
+      Keep close to Nature's heart... 
+      and break clear away, once in 
+      awhile,and climb a mountain or 
+      spend a week in the woods. Wash 
+      your spirit clean.
+    </ion-card-content>
+
+  </ion-card>
+              </code></pre>
+          </div>
+        </section>
+         <section>
+            
+            <div class="col preview demo-frame demo">
+              <iframe src="demos/v2/demos/platform-ios/index.html"></iframe>
+            </div>
+            <h1>Platform Continuity</h1>
+            <button style="width:100px; height:40px" onclick="togglePlatform()">iOS</button>
+            <button style="width:100px; height:40px" onclick="togglePlatform()">Android</button>
+            <p>Matches Platform Style<p>
+            <p>Icons Changes Accordingly</p>
+            <p>Transition changes according to Platform</p>
+        </section>
+        
+        <section>
+            <h1>Native Plugins</h1>
+        </section>
+         
+         <section data-background="white">
+          <h1 class="ionic-blue">Getting Started!</h1>
+        </section>
+        
+        <section data-background="white">
+          <p><code style="font-size: 1em;" class="ionic-blue">$ git clone https://github.com/driftyco/ionic2-starter</code></p>
+          <p><code style="font-size: 1em;" class="ionic-blue">$ cd ionic2-starter</code></p>
+          <p><code style="font-size: 1em;" class="ionic-blue">$ gulp watch</code></p>
+          <br/>
+          <p class="ionic-blue">Boilerplate <strong>app structure</strong> ready for customization</p>
+          <p class="ionic-blue"><strong>LiveReload</strong your App</p>
+          <p class="ionic-blue"><strong>Transpiling</strong> JS and TS. <strong>Compiling SASS</strong></p>
+        </section>
+
+
+        <section data-background="#232323">
+          <h2 style="color:#32b83b;font-family:Monaco;"><strong>Demo Time!</strong></h2>
+        </section>
+
+        <section>
+          <h2><code style="font-size: 80px">&lt;/html&gt;</code></h2>
+          <h3 style="text-transform:none; font-size: 46px">
+            <a style="text-decoration:none;" href="https://twitter.com/imsinghk7" target="_blank">@imsinghk7</a>
+          </h3>
+        </section>
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
