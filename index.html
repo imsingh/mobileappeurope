@@ -181,7 +181,7 @@
         
          <section>
             <h1>Features of Ionic 2</h1>
-            <p class="fragment">Leveraging Latest JavaScript Features.</p>
+            <p class="fragment">Latest JavaScript.</p>
             <p class="fragment">Better performance</p>
             <p class="fragment">Easier to understand</p>
             <p class="fragment">Simpler concepts and code</p>
@@ -204,8 +204,7 @@
              
               <section>
                 <p>Ionic 2 is setup for ES6 and TypeScript.</p>
-                <p>All the build and transpiling tools are setup for you</p>
-                <p>Write your code, it will build for you!</p>
+                <p>Need to Transpile ES6 or TypeScript to ES5</p>
                 <p>Code completion Support and Intellisense</p>
               </section>
               
@@ -270,6 +269,14 @@
         </section>
         
         <section>
+          <h2>Performance</h2>
+          <section>
+             <p>No Digest Cycles</p>
+             <p>Better Change Detection<p>
+          </section>
+        </section>
+        
+        <section>
             <h3>UI Component Overview</h3>
         </section>        
              
@@ -297,7 +304,7 @@
               <h3>Navigation</h3>
               <ul style="margin-left: 70px">
                 <li>Uses Push/Pop Navigation</li>
-                <li>More Live Native Platform</li>
+                <li>More Like Native Platform</li>
                 <li>Create Navigation Stack anywhere</li>
                 <li>Not Tied to URL</li> 
                 <li>Developer has more control</li> 
@@ -341,7 +348,7 @@
             
 <ion-slides [options]="extraOptions" id="slider">
   <ion-slide *ng-for="#image of images">
-    <img data-src="{{image.url}}" slide-lazy>
+    <img data-src="{{image.url}}">
   </ion-slide>
 </ion-slides>
         </code></pre>
@@ -386,7 +393,6 @@ this.actionSheet.open({
             <h3>Modal</h3>
              <ul>
                <li>Import Modal Service</li>
-               <li>Use it anywhere in your App's Class</li>
                </ul>
                <pre data-trim><code class="javascript">
 this.modal.open(AnyView, {
@@ -404,16 +410,9 @@ this.modal.open(AnyView, {
           </div>
           <div class="col code">
             <h3>Buttons</h3>
-            <ul>
-              <li>Uses Element properties</li>  
-            </ul>
-            <pre data-trim><code class="xml">
-<button>Simple</button>
-<button primary>Primary</button>
-<button full>Full</button>
-<button round>Round</button>
-<button fab>Fab</button>
-              </code></pre>
+            <code>&lt;button type&gt;Button&lt;/button&gt;</code>
+            <p>Types are based on theme and Shapes</p>
+            <p>Primary, Secondary, Full, Round, FAB, Outline</p>
           </div>
           
           
@@ -425,16 +424,10 @@ this.modal.open(AnyView, {
           </div>
           <div class="col code">
             <h3>Icons</h3>
-            <pre data-trim><code class="xml">
- <icon wifi></icon>
- <icon heart></icon>
- <icon home></icon>
- <icon color-wand></icon>
- <icon star></icon>
- <icon pizza></icon>
- <icon beer></icon>
- <icon wine></icon>
-              </code></pre>
+           <code>&lt;icon icon-name&gt;&lt;/icon&gt;</code>
+           <p>Icon comes with Ionicons Font.</p>
+           <p>800+ Icons</p>
+           <p>Changes according to Platform</p>
           </div>
         </section>
         
@@ -478,10 +471,28 @@ this.modal.open(AnyView, {
         
         <section>
             <h1>Native Plugins</h1>
+            <p>Previously ngCordova</p>
+            <p>ES6 API's for Cordova Plugin</p>
+            <p>60+ Cordova Plugins are Supported</p>
+            <p>Just Import Plugin and Go!</p>
+             <pre data-trim><code class="javascript">
+import {Camera} from 'ngcordova';
+
+Class myApp {
+  constructor(Camera: camera) {
+    this.camera = camera;
+  }
+  
+  getPicture() {
+    this.camera.getPicture();
+  }
+}
+             </code></pre>
         </section>
          
          <section data-background="white">
           <h1 class="ionic-blue">Getting Started!</h1>
+          <p class="danger">Things may change in future</p>
         </section>
         
         <section data-background="white">
@@ -496,8 +507,8 @@ this.modal.open(AnyView, {
         </section>
 
 
-        <section data-background="#232323">
-          <h2 style="color:#32b83b;font-family:Monaco;"><strong>Demo Time!</strong></h2>
+        <section data-background="white">
+          <h2 style="font-family:Monaco;"><strong>Demo Time!</strong></h2>
         </section>
 
         <section>
